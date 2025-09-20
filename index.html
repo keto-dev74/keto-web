@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="br">
+   <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência Web – Criação de sites para empresas</title>
+
+    <link rel="icon" type="image/png" href="logo site.png">
+    
+    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head >
+<body id="body">
+
+
+ <!-- Splash screen -->
+  <div class="splash">
+    <img src="logo site.png" alt="KETO CODE">
+    <p>KETO CODE</p>
+  </div>
+
+ 
+
+<script>
+  window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+
+    // garde le splash 3 secondes puis le cache
+    setTimeout(() => {
+      splash.classList.add("hidden");
+    }, 3000);
+  });
+
+  // Si l'utilisateur revient (navigateur met en cache la page)
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) { 
+      // Ré-affiche le splash quand on revient en arrière
+      const splash = document.getElementById("splash");
+      splash.classList.remove("hidden");
+
+      setTimeout(() => {
+        splash.classList.add("hidden");
+      }, 3000);
+    }
+  });
+</script>
+
+
+
+  <!-- Bouton centré -->
+  <button class="menu-btn" id="menuBtn">Menu</button>
+
+  <!-- Menu -->
+  <div class="menu" id="menu">
+    <a href="index.html">INICIO</a>
+    <a href="#text-2">SOBRE-NOS</a>
+    <a href="#serviço">SERVIÇO</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+    const links = menu.querySelectorAll("a");
+
+    // ouvrir / fermer au clic
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+
+    // fermer après clic sur un lien
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("active");
+      });
+    });
+  </script>
+
+<script src="code.js"></script>
+  <section id="accueil">
+
+
+   <div class="conteneur-1">
+    <h1>Eleve  sua  <br>presença na <br>  web a patamares  </h1>
+</div>
+      <div class="hero-sub">incomparáveis.</div>
+
+  </div >
+    <p class="intro">Inscreva-se na lista de espera para criar um site com design incomparável e sob medida.</p>
+  </div>
+<div class="container-boutons" > 
+  <a href="formulaire.html" ><button type="button" class="btn">Agendar uma chamada </button></a>
+   <a href="https://wa.me/message/67SOIC5CODHVA1" ><button class="btn-noir">Discutir Projeto</button></a>
+ </div>
+
+</section>
+</section >
+<section class="page2">
+ <div id="text-2">  <h2>sobre-nos</h2></div>
+<div class="apropo">Nós concebemos soluções Web2 de alto desempenho, especializadas em páginas de apresentação, plataformas de e-commerce transparentes e sistemas totalmente integrados que estimulam o engajamento dos usuários e o crescimento da empresa.</div>
+
+
+  
+ 
+
+<section id="serviço">
+  
+  </div>
+  <div class="text">
+  <h2>serviço</h2>
+</div>
+
+  <div class="card">
+    <h2>D&D</h2>
+    <p>
+      Design & Desenvolvimento Web <br>
+      Criamos sites modernos, rápidos e adaptados às suas necessidades. 
+      Cada projeto é pensado para ser único, profissional e capaz de atrair mais clientes.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>iOS App</h2>
+    <p>
+      Compatibilidade Mobile & iOS/Android <br>
+      Sites e aplicativos otimizados para todas as telas, 
+      com uma experiência perfeita em smartphones e computadores.
+    </p>
+  </div>
+
+  <div class="card card-3" onclick="this.classList.toggle('open')">
+    <h2>UI UX</h2>
+    <p>
+      UI/UX Experiência Visual <br>
+      Um design minimalista, elegante e intuitivo que valoriza a sua marca. 
+      Unimos estética e performance para oferecer uma navegação fluida e marcante.
+    </p>
+  </div>
+  <div class="promo-card">
+    
+    <!-- Texte principal -->
+    <div class="promo-text">
+      <h2>Transforme seus visitantes em clientes com um site que inspira confiança.</h2>
+      <p>Nossa equipe está pronta para criar uma solução moderna e segura para você.</p>
+    </div>
+
+    <!-- Bouton -->
+    <div class="promo-action">
+      <a href="devis.html" class="promo-btn">Obter meu site agora</a>
+    </div>
+
+    <!-- Avatars -->
+    <div class="promo-bottom">
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/50?img=1" alt="user1">
+        <img src="https://i.pravatar.cc/50?img=2" alt="user2">
+        <img src="https://i.pravatar.cc/50?img=3" alt="user3">
+        <img src="https://i.pravatar.cc/50?img=4" alt="user4">
+        <img src="https://i.pravatar.cc/50?img=5" alt="user5">
+        <span class="more">+500</span>
+      </div>
+      <p class="students">Clientes satisfeitos</p>
+    </div>
+
+  </div>
+</section>
+
+</section>
+ 
+
+
+  <style>
+    .social-links {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;
+  gap: 20px; /* espace entre les icônes */
+  margin: 20px 0;
+}
+.social-links a {
+  color: #444;
+  font-size: 28px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #4CAF50; /* couleur au survol */
+}
+
+  </style>
+  <div class="social-links">
+  <a href="https://www.instagram.com/keto.code89?igsh=d2Z0bHB3MjU3ZGVi"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@sayto072?_t=ZM-8zleqNDFl8K&_r=1"><i class="fab fa-tiktok"></i></a>
+  <a href="https://youtube.com/@keto.code727?si=ixER4kgGSrLljZ50"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.linkedin.com/in/horney?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+</div>
+</section>
+
+</body>
+</html>
