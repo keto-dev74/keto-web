@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarification</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fb;
+      color: #1d1d1f;
+    }
+
+    .pricing {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .pricing h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #1d1d1f;
+    }
+
+    .pricing p {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    /* Toggle */
+    .toggle {
+      margin: 20px auto;
+      display: inline-flex;
+      background: #e8e9f1;
+      border-radius: 30px;
+      padding: 5px;
+    }
+
+    .toggle button {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 500;
+      color: #333;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .toggle button.active {
+      background: #4a6cf7;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(74,108,247,0.3);
+    }
+
+    /* Cartes desktop */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 0px;
+      max-width: 1900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+/* Pour les petits écrans type Samsung S8 */
+
+    /* Carte */
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      font-size: 26px;
+      margin: 0;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    .card h2 span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #777;
+    }
+
+    .card h3 {
+      margin: 15px 0 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 25px;
+      text-align: left;
+    }
+
+    .card ul li {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+
+    .card ul li::before {
+      content: "✓";
+      margin-right: 8px;
+      color: #4a6cf7;
+      font-weight: bold;
+    }
+
+ .btn {
+  display: inline-block;
+  background-color: #2563eb;
+  color: #ffffff;
+  width: 80%;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 9999px; /* pill arrondi */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin: 0 auto;        /* centrage horizontal */
+}
+
+.btn:hover {
+  background-color: #1e40af;
+}
+
+
+  
+
+    /* Carte Pro (mise en avant) */
+    .card.popular {
+      background: linear-gradient(180deg, #4a6cf7, #6a82fb);
+      color: white;
+    }
+
+    .card.popular h2, 
+    .card.popular h3, 
+    .card.popular ul li {
+      color: white;
+    }
+
+    .card.popular ul li::before {
+      color: white;
+    }
+
+    .card.popular button {
+      background: white;
+      color: #4a6cf7;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 10px;
+      }
+
+      .card {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+      }
+
+      .card.premium {
+        flex: 0 0 90%;
+      }
+    }
+
+    /* Masquer premium par défaut */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<style>/* Style du bouton Voltar */
+.btn-voltar {
+  position: absolute;     /* Fixe en haut à gauche */
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: #666;            /* gris discret */
+  text-decoration: none;  /* enlève le soulignement */
+  transition: color 0.3s ease;
+}
+
+.btn-voltar:hover {
+  color: #2563eb;         /* devient bleu au survol */
+}
+
+/* Style de la flèche */
+.btn-voltar .arrow {
+  font-size: 18px;        /* flèche un peu plus grande que le texte */
+  margin-right: 6px;
+}
+
+/* Responsive : plus petit sur mobile */
+@media (max-width: 600px) {
+  .btn-voltar {
+    font-size: 12px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .btn-voltar .arrow {
+    font-size: 16px;
+  }
+}
+</style>
+
+    <a href="/index.html" class="btn-voltar">
+  <span class="arrow">←</span> Voltar
+</a>
+  <section class="pricing">
+    <h2>Sua presença online hoje é o crescimento <br>do seu negócio amanhã.</h2>
+    <p>Um acompanhamento transparente <br> para resultados duradouros.</p>
+
+
+    <!-- Toggle -->
+    <div class="toggle">
+      <button id="btn-basic" class="active">Plano Básico</button>
+      <button id="btn-premium">Plano Premium</button>
+    </div>
+
+    <!-- Cartes -->
+    <div class="cards" id="cards">
+      <!-- Plan Basic -->
+      <div class="card">
+        <h2>R$ 2.000<span>- R$ 2.500</span></h2>
+        <h3>Página de Destino Express</h3>
+        <ul>
+          <li>1 página moderna e responsiva</li>
+          <li>Design exclusivo adaptado à sua marca</li>
+          <li>Integração com redes sociais</li>
+          <li>Formulário de contato ou WhatsApp integrado</li>
+          <li>Publicação rápida (até 7 dias úteis)</li>
+        </ul>
+       <a href="https://wa.me/5581999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20contratar%20o%20Plano%20Basic." 
+   target="_blank" class="btn">
+   Escolher este plano
+</a>
+
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="card popular">
+        <h2>R$ 4.000<span>-R$ 4.600 </span></h2>
+        <h3>Plano Profissional <small>(Mais popular)</small></h3>
+        <ul>
+          <li>5 a 7 páginas (Home, Sobre, Serviços, Contato, etc.)</li>
+          <li>Design responsivo + SEO otimizado (Google)</li>
+          <li>Blog integrado para conteúdo e notícias</li>
+          <li>Formulários de contato e captura de leads</li>
+          <li>Suporte mensal para ajustes e pequenas atualizações</li>
+          <li>Configuração de Google Analytics / Meta Pixel</li>
+        </ul>
+       
+<!-- Plano Pro -->
+<a href="https://wa.me/5581999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20contratar%20o%20Plano%20Pro." 
+   target="_blank" class="btn">
+  Começar agora
+</a>
+      </div>
+
+      <!-- Plan Premium -->
+      <div class="card premium hidden">
+        <h2>R$ 7.800<span>- R$ 8.200</span></h2>
+        <h3>Plano Premium</h3>
+        <ul>
+          <li>Site sob medida, páginas ilimitadas</li>
+          <li>Design premium com animações avançadas</li>
+          <li>Loja virtual (E-commerce) se necessário</li>
+          <li>Hospedagem + domínio inclusos por 1 ano</li>
+          <li>SEO avançado + performance otimizada</li>
+          <li>Suporte prioritário 24/7 (WhatsApp / Telefone)</li>
+          <li>Relatórios mensais de desempenho</li>
+        </ul>
+       <!-- Plano Premium -->
+<a href="https://wa.me/5581999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20contratar%20o%20Plano%20Premium." 
+   target="_blank" class="btn">
+    Começar agora
+</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const btnBasic = document.getElementById("btn-basic");
+    const btnPremium = document.getElementById("btn-premium");
+    const premiumCard = document.querySelector(".card.premium");
+    const basicCards = document.querySelectorAll(".card:not(.premium)");
+
+    btnBasic.addEventListener("click", () => {
+      btnBasic.classList.add("active");
+      btnPremium.classList.remove("active");
+
+      basicCards.forEach(c => c.classList.remove("hidden"));
+      premiumCard.classList.add("hidden");
+    });
+
+    btnPremium.addEventListener("click", () => {
+      btnPremium.classList.add("active");
+      btnBasic.classList.remove("active");
+
+      basicCards.forEach(c => c.classList.add("hidden"));
+      premiumCard.classList.remove("hidden");
+    });
+  </script>
+
+</body>
+</html>
